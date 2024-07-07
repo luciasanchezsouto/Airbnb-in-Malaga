@@ -1,1 +1,4 @@
+This repository includes a .py file that is meant to work for streamlit, a Jupiter Notebook with python code that was generated previously, and all the .csv and images used on the project.
 Streamlit link: https://airbnb-in-malaga-project.streamlit.app/
+
+The idea of this work was to analyze the data that we obtained from Inside Airbnb about the Airbnb situation in the city of Malaga. As data proffesionals, we worked through tha data to get the most powerful insights, as well as from the news to get a full picture of what the Airbnb situation in Malaga really meant, both for the turists and also for the population living there. We developed this project from a prism of a fictional company that was hired by the Ayuntamiento de Malaga to obtain a panoramic view of the Airbnb community and the problematic behind it, proposing as well ideas to solve the issues found.

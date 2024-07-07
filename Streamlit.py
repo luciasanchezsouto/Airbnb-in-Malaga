@@ -40,7 +40,6 @@ def home_page():
     st.write("""Somos un grupo de consultores de datos, especializados en análisis de datos y visualización. 
                     Nuestro objetivo es ayudar a las empresas a tomar decisiones basadas en datos, a través de análisis de datos y visualizaciones interactivas.""")
     st.write("**Si tienes una IDEA, nosotros tenemos los DATOS**")
-      
 p1= st.Page(home_page, title='Inicio')
 
 def intro():

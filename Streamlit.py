@@ -13,8 +13,6 @@ import plotly.express as px
 from wordcloud import WordCloud
 import json
 
-@st.cache_resource 
-
 st.set_page_config(
     page_title="DataIDEA Consulting",
     page_icon=":sparkles:",

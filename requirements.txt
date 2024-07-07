@@ -5,10 +5,10 @@ matplotlib.pyplot
 seaborn
 streamlit.components.v1
 folium
-FastMarkerCluster
+folium.plugins
 geopandas
-LinearColormap
+branca.colormap
 streamlit_folium
 plotly.express
-WordCloud
+wordcloud
 json

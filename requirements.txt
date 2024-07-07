@@ -7,4 +7,3 @@ folium
 geopandas
 plotly.express
 wordcloud
-json

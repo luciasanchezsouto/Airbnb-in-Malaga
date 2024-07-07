@@ -24,10 +24,10 @@ st.set_page_config(
 def home_page():
     st.title('Exploración de los Airbnb en Málaga')
     st.write('*Informe realizado por DATAIDEA Consulting para el Ayuntamiento de Málaga.*')
-    st.image(r'Entrega_3\Malaga_foto.jpg')
-    photo1=r'Entrega_3\logo.PNG'
-    photo2=r'Entrega_3\ayto-vertical-2lineas-positivo.png'
-    photo3=r'Entrega_3\Logotipo_de_la_Junta_de_Andalucía_2020.svg.png'
+    st.image(r'Malaga_foto.jpg')
+    photo1=r'logo.PNG'
+    photo2=r'ayto-vertical-2lineas-positivo.png'
+    photo3=r'Logotipo_de_la_Junta_de_Andalucía_2020.svg.png'
     col1, col2, col3 = st.columns(3)
     with col1:
         st.image(photo1)
@@ -49,7 +49,7 @@ def intro():
     st.write("""El objetivo de este informe es **analizar los datos de los alojamientos de Airbnb en Málaga**. 
              Para ello, se han realizado diferentes análisis y visualizaciones de datos ,estudiando distintas variables, como la ubicación, el precio o las valoraciones. 
              A continuación, se presentan los resultados obtenidos en este análisis.""")
-    st.image(r'Entrega_3\intro.PNG')
+    st.image(r'intro.PNG')
 p2=st.Page(intro, title='Introducción')
 
 
@@ -69,8 +69,8 @@ p3=st.Page(Muestra, title='Muestra de los datos')
 
 def Análisis():
     st.title('Análisis exploratorio de los datos')
-    listings = pd.read_csv(r'Entrega_3\input\listings.csv')
-    detailed_listings = pd.read_csv(r'Entrega_3\input\detailed_listings.csv')
+    listings = pd.read_csv(r'listings.csv')
+    detailed_listings = pd.read_csv(r'detailed_listings.csv')
     target_columns = ["id", "property_type", "accommodates", "first_review", "review_scores_value", "review_scores_cleanliness", "review_scores_location", "review_scores_accuracy", "review_scores_communication", "review_scores_checkin", "review_scores_rating", "maximum_nights", "listing_url", "host_is_superhost", "host_about", "host_response_time", "host_response_rate"]
     short_detailed_listings = detailed_listings[target_columns]
     listings = pd.merge(listings, short_detailed_listings, on='id', how='left')
@@ -210,8 +210,8 @@ def Análisis():
         draw_price_chart(accommodates) 
         
         
-        lam2=pd.read_csv(r'C:\Users\lucia\Desktop\UPGRADE_works\Entrega_3\lam_reset.csv')
-        lam= gpd.read_file(r"C:\Users\lucia\Desktop\UPGRADE_works\Entrega_3\input\neighbourhoods.geojson")
+        lam2=pd.read_csv(r'lam_reset.csv')
+        lam= gpd.read_file(r"neighbourhoods.geojson")
         lam2=pd.DataFrame(lam2)
         lam2 = pd.merge(lam2, lam, on='neighbourhood', how='left')
         gdf = gpd.GeoDataFrame(lam2, geometry='geometry')
@@ -344,26 +344,26 @@ def Análisis():
         plt.xlabel('Puntuación media', fontsize=14)
         st.pyplot(fig) 
         
-        st.image(r'C:\Users\lucia\Desktop\UPGRADE_works\Entrega_3\mapa palabras.png')
+        st.image(r'mapa palabras.png')
 
 p4=st.Page(Análisis, title='Análisis exploratorio de los datos')
             
 def Ayuntamiento():
     st.title('Problemáticas derivadas de los Airbnb')
-    imagen_path_crecimiento_urbano = r'Entrega_3\CRECIMIENTO_URBANO_MALAGA_FUENTE-DIARIOSUR.ES.jpg'
+    imagen_path_crecimiento_urbano = r'CRECIMIENTO_URBANO_MALAGA_FUENTE-DIARIOSUR.ES.jpg'
     st.image(imagen_path_crecimiento_urbano)
     st.caption('Fuente: Diario Sur, 2021')
     st.write("""En este mapa se puede observar el **crecimiento urbano de Málaga** en los últimos años. No obstante, gran parte de este crecimiento se ha transformado en la **masificación de vivienda turística**. 
                 Bajo el lema "Málaga para vivir, no para sobrevivir", más de 25.000 manifestantes según la organización y 5.500 según datos de la Policía Nacional, se lanzaron a la calle para denunciar la complicada situación del mercado de la vivienda que afronta la capital malagueña, que sigue ocupando los primeros puestos en los rankings nacionales en cuanto a la **escalada de precios**, así como los procesos de turistificación que empezaron en el primer distrito de la capital y que se extienden ya hasta los barrios, con la **proliferación de viviendas turísticas** o la **desaparición del comercio tradicional** con la reconversión de locales comerciales (*El día, 2024*).""")
-    st.image(r'Entrega_3\MANI_VIVIENDA_3_FUENTE_EL_ESPAÑOL 1.png')
+    st.image(r'MANI_VIVIENDA_3_FUENTE_EL_ESPAÑOL 1.png')
     st.caption('Fuente: El Español, 2024')
     st.empty()            
     st.write("""Por otro lado, la proliferación de viviendas turísticas ha sido un factor determinante en la problemática existente de la **contaminación acústica**, para la que se ha creado una Asociación vecinal que lucha contra la misma (*La opinión de Málaga, 2024*).""")
-    st.image(r'Entrega_3\ASOC_VECINAL_RUIDO_FUENTE_LA_OPINION_DE_MALAGA 1.png')
+    st.image(r'ASOC_VECINAL_RUIDO_FUENTE_LA_OPINION_DE_MALAGA 1.png')
     st.caption('Fuente: La opinión de Málaga, 2024')
     st.write("""Podemos observar como las quejas de la población a la policía por el ruido han ido en aumento año tras año, pasando de 11442 quejas en el año 2011 a 16497 en el año 2020, lo que supone un incremento de las quejas en un 30,6%.
             Les mostramos un gráfico en el cual se ve el aumento de las quejas de los vecinos en los últimos años:""")
-    st.image(r'Entrega_3\DENUNCIAS VECINOS RUIDOS-2-FUENTE-TECHNI-ACUSTICA 1.jpg')
+    st.image(r'DENUNCIAS VECINOS RUIDOS-2-FUENTE-TECHNI-ACUSTICA 1.jpg')
     st.caption('Fuente: Techni-acústica Elche, 2022')
     st.write("""Ambos problemas se conocen en el ámbito de la economía como **externalidades negativas**, es decir, efectos negativos que no son tenidos en cuenta por el mercado y que afectan a terceros, en este caso, a los vecinos de los barrios de Málaga.""")
     st.write("""En cuanto a **soluciones**, el Gobierno ha adoptado una serie de medidas entre las que está una nueva ordenanza que debe **limitar la posibilidad de abrir nuevas viviendas turísticas** en relación con la saturación del barrio en el que se encuentren, **las viviendas deberán contar con una entrada independiente** (*Málaga hoy, 2024*).

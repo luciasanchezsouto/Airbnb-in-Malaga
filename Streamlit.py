@@ -116,7 +116,7 @@ def Análisis():
         min_listings = st.slider("Minimum number of listings for a property type", 50, 500, 100, 50)
         selected_room_types = st.multiselect("Select room types to include", options=listings['room_type'].unique(), default=listings['room_type'].unique())
         filtered_listings = listings[listings['room_type'].isin(selected_room_types)]
-        prop = filtered_listings.groupby(['property_type', 'room_type']).room_type.count()
+        prop = filtered_listings.groupby(['property_types_x', 'room_type']).room_type.count()
         prop = prop.unstack()
         prop['total'] = prop.iloc[:, 0:3].sum(axis=1)
         prop = prop.sort_values(by=['total'])

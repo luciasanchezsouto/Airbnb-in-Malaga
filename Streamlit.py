@@ -13,6 +13,7 @@ import plotly.express as px
 from wordcloud import WordCloud
 import json
 
+@st.cache_resource 
 
 st.set_page_config(
     page_title="DataIDEA Consulting",
@@ -62,7 +63,7 @@ def Muestra():
     target_columns = ["id", "property_type", "accommodates", "first_review", "review_scores_value", "review_scores_cleanliness", "review_scores_location", "review_scores_accuracy", "review_scores_communication", "review_scores_checkin", "review_scores_rating", "maximum_nights", "listing_url", "host_is_superhost", "host_about", "host_response_time", "host_response_rate"]
     short_detailed_listings = detailed_listings[target_columns]
     listings = pd.merge(listings, short_detailed_listings, on='id', how='left')
-    st.write(listings.head(5), wight=1000)
+    st.listings(listings.head(5), wight=1000)
     st.write('Como ya se puede ver en la tabla, hay **columnas** completamente llenas de **datos nulos**, que se **eliminan** para facilitar el análisis.')
 p3=st.Page(Muestra, title='Muestra de los datos')
 

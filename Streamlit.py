@@ -160,7 +160,7 @@ def Análisis():
     with tabs[2]:
         
         st.header("Personas")
-        lnp = listings['accommodates'].value_counts().sort_index()
+        lnp = listings['accommodates_x'].value_counts().sort_index()
         fig, ax = plt.subplots(figsize=(10, 8))
         colors = ["#ADD8E6", "#4682B4", "#1E3A8A", "#000080", "#FFD700", "#FFA500", "#DAA520", "#B8860B"]
         plt.rcParams['axes.prop_cycle'] = plt.cycler(color=colors)
@@ -180,7 +180,7 @@ def Análisis():
     with tabs[3]:
         st.header("Precios")
         def draw_price_chart(accommodates=4):
-            filtered_data = listings[listings['accommodates'] == accommodates]
+            filtered_data = listings[listings['accommodates_x'] == accommodates]
             average_price = filtered_data.groupby('neighbourhood')['price'].mean().sort_values()
             colors = plt.cm.magma(np.linspace(0, 1, len(average_price)))
             plt.figure(figsize=(10, 8))
@@ -237,8 +237,8 @@ def Análisis():
         plt.rc('xtick', labelsize=16)
         plt.rc('ytick', labelsize=20)
         ax1 = fig.add_subplot(121)
-        mal = listings[listings['number_of_reviews'] >= 10]
-        mal = mal.groupby('neighbourhood')['review_scores_location'].mean().sort_values(ascending=True)
+        mal = listings[listings['number_of_reviews_ltm'] >= 10]
+        mal = mal.groupby('neighbourhood')['review_scores_location_x'].mean().sort_values(ascending=True)
         colors = ["#ADD8E6", "#4682B4", "#1E3A8A", "#000080", "#FFD700", "#FFA500", "#DAA520", "#B8860B"]
         plt.rcParams['axes.prop_cycle'] = plt.cycler(color=colors)
         plt.rcParams['figure.facecolor'] = '#FFFFFF'
@@ -255,7 +255,7 @@ def Análisis():
         plt.tight_layout()
         st.pyplot(fig)
         
-        listings10 = listings[listings['number_of_reviews'] >= 10]
+        listings10 = listings[listings['number_of_reviews_ltm'] >= 10]
         fig = plt.figure(figsize=(20, 15))
         plt.rc('xtick', labelsize=16)
         plt.rc('ytick', labelsize=16)
@@ -269,13 +269,13 @@ def Análisis():
         plt.rcParams['xtick.color'] = '#000000'
         plt.rcParams['ytick.color'] = '#000000'
         plt.rcParams['font.family'] = 'sans-serif'
-        sns.histplot(data=listings10, x='review_scores_location', bins=10, kde=True, ax=ax1)
+        sns.histplot(data=listings10, x='review_scores_location_x', bins=10, kde=True, ax=ax1)
         plt.title("Ubicación", fontsize=24)
         plt.ylabel('Número de alojamientos', fontsize=14)
         plt.xlabel('Puntuación media', fontsize=14)
         st.pyplot(fig) 
         
-        listings10 = listings[listings['number_of_reviews'] >= 10]
+        listings10 = listings[listings['number_of_reviews_ltm'] >= 10]
         fig = plt.figure(figsize=(20, 15))
         plt.rc('xtick', labelsize=16)
         plt.rc('ytick', labelsize=16)
@@ -289,13 +289,13 @@ def Análisis():
         plt.rcParams['xtick.color'] = '#000000'
         plt.rcParams['ytick.color'] = '#000000'
         plt.rcParams['font.family'] = 'sans-serif'
-        sns.histplot(data=listings10, x='review_scores_cleanliness', bins=10, kde=True, ax=ax1)
+        sns.histplot(data=listings10, x='review_scores_cleanliness_x', bins=10, kde=True, ax=ax1)
         plt.title("Limpieza", fontsize=24)
         plt.ylabel('Número de alojamientos', fontsize=14)
         plt.xlabel('Puntuación media', fontsize=14)
         st.pyplot(fig) 
         
-        listings10 = listings[listings['number_of_reviews'] >= 10]
+        listings10 = listings[listings['number_of_reviews_ltm'] >= 10]
         fig = plt.figure(figsize=(20, 15))
         plt.rc('xtick', labelsize=16)
         plt.rc('ytick', labelsize=16)
@@ -309,13 +309,13 @@ def Análisis():
         plt.rcParams['xtick.color'] = '#000000'
         plt.rcParams['ytick.color'] = '#000000'
         plt.rcParams['font.family'] = 'sans-serif'
-        sns.histplot(data=listings10, x='review_scores_accuracy', bins=10, kde=True, ax=ax1)
+        sns.histplot(data=listings10, x='review_scores_accuracy_x', bins=10, kde=True, ax=ax1)
         plt.title("Veracidad", fontsize=24)
         plt.ylabel('Número de alojamientos', fontsize=14)
         plt.xlabel('Puntuación media', fontsize=14)
         st.pyplot(fig) 
         
-        listings10 = listings[listings['number_of_reviews'] >= 10]
+        listings10 = listings[listings['number_of_reviews_ltm'] >= 10]
         fig = plt.figure(figsize=(20, 15))
         plt.rc('xtick', labelsize=16)
         plt.rc('ytick', labelsize=16)
@@ -329,7 +329,7 @@ def Análisis():
         plt.rcParams['xtick.color'] = '#000000'
         plt.rcParams['ytick.color'] = '#000000'
         plt.rcParams['font.family'] = 'sans-serif'
-        sns.histplot(data=listings10, x='review_scores_communication', bins=10, kde=True, ax=ax1)
+        sns.histplot(data=listings10, x='review_scores_communication_x', bins=10, kde=True, ax=ax1)
         plt.title("Comunicación", fontsize=24)
         plt.ylabel('Número de alojamientos', fontsize=14)
         plt.xlabel('Puntuación media', fontsize=14)

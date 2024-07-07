@@ -57,7 +57,7 @@ def Muestra():
     st.write('Tenemos los datos de **7783 alojamientos de Airbnb** en Málaga, de los que se han estudiado distintas variables, como la **ubicación**, el **precio** o las **valoraciones**.')
     st.write('A continuación, se muestra una tabla con los 5 primeros registros de la base de datos:')
     listings = pd.read_csv('listings.csv')
-    st.dataframe (df.head(10), width=1000)
+    st.listings(df.head(10))
     st.write('Como ya se puede ver en la tabla, hay **columnas** completamente llenas de **datos nulos**, que se **eliminan** para facilitar el análisis.')
 p3=st.Page(Muestra, title='Muestra de los datos')
 

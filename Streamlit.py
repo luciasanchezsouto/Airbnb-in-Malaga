@@ -57,8 +57,8 @@ def Muestra():
     st.title('Muestra de los datos')
     st.write('Tenemos los datos de **7783 alojamientos de Airbnb** en Málaga, de los que se han estudiado distintas variables, como la **ubicación**, el **precio** o las **valoraciones**.')
     st.write('A continuación, se muestra una tabla con los 5 primeros registros de la base de datos:')
-    listings = pd.read_csv(r'Entrega_3\input\listings.csv')
-    detailed_listings = pd.read_csv(r'Entrega_3\input\detailed_listings.csv')
+    listings = pd.read_csv(r'listings.csv')
+    detailed_listings = pd.read_csv(r'detailed_listings.csv')
     target_columns = ["id", "property_type", "accommodates", "first_review", "review_scores_value", "review_scores_cleanliness", "review_scores_location", "review_scores_accuracy", "review_scores_communication", "review_scores_checkin", "review_scores_rating", "maximum_nights", "listing_url", "host_is_superhost", "host_about", "host_response_time", "host_response_rate"]
     short_detailed_listings = detailed_listings[target_columns]
     listings = pd.merge(listings, short_detailed_listings, on='id', how='left')

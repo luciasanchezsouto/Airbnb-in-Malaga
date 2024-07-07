@@ -1,7 +1,7 @@
 streamlit
 pandas
 numpy
-matplotlib.pyplot
+matplotlib
 seaborn
 streamlit.components.v1
 folium

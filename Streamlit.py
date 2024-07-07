@@ -55,20 +55,16 @@ p2=st.Page(intro, title='Introducción')
 def Muestra():
     st.title('Muestra de los datos')
     st.write('Tenemos los datos de **7783 alojamientos de Airbnb** en Málaga, de los que se han estudiado distintas variables, como la **ubicación**, el **precio** o las **valoraciones**.')
-    st.write('A continuación, se muestra una tabla con los 5 primeros registros de la base de datos:')
+    st.write('A continuación, se muestra una tabla con los 9 primeros registros de la base de datos:')
     listings = pd.read_csv('listings.csv')
     st.dataframe(listings.head(10))
-    st.write('Como ya se puede ver en la tabla, hay **columnas** completamente llenas de **datos nulos**, que se **eliminan** para facilitar el análisis.')
+    st.write('Por otro lado, hay **columnas** completamente llenas de **datos nulos**, que se **eliminan** para facilitar el análisis.')
 p3=st.Page(Muestra, title='Muestra de los datos')
 
 
 def Análisis():
     st.title('Análisis exploratorio de los datos')
-    listings = pd.read_csv(r'listings.csv')
-    detailed_listings = pd.read_csv(r'detailed_listings.csv')
-    target_columns = ["id", "property_type", "accommodates", "first_review", "review_scores_value", "review_scores_cleanliness", "review_scores_location", "review_scores_accuracy", "review_scores_communication", "review_scores_checkin", "review_scores_rating", "maximum_nights", "listing_url", "host_is_superhost", "host_about", "host_response_time", "host_response_rate"]
-    short_detailed_listings = detailed_listings[target_columns]
-    listings = pd.merge(listings, short_detailed_listings, on='id', how='left')
+    listings = pd.read_csv('listings.csv')
     
     tabs = st.tabs(["Localización", "Tipos", "Personas", "Precios", "Puntuaciones"])
     

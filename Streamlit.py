@@ -55,7 +55,7 @@ def Muestra():
     st.title('Muestra de los datos')
     st.write('Tenemos los datos de **7783 alojamientos de Airbnb** en Málaga, de los que se han estudiado distintas variables, como la **ubicación**, el **precio** o las **valoraciones**.')
     st.write('A continuación, se muestra una tabla con los 9 primeros registros de la base de datos:')
-    listings = pd.read_csv('csv_geojson/listings (1).csv')
+    listings = pd.read_csv('csv_geojson/listings1.csv')
     st.dataframe(listings.head(10))
     st.write('Por otro lado, hay **columnas** completamente llenas de **datos nulos**, que se **eliminan** para facilitar el análisis.')
 p3=st.Page(Muestra, title='Muestra de los datos')
@@ -63,7 +63,7 @@ p3=st.Page(Muestra, title='Muestra de los datos')
 
 def Análisis():
     st.title('Análisis exploratorio de los datos')
-    listings = pd.read_csv('csv_geojson/listings (1).csv')
+    listings = pd.read_csv('csv_geojson/listings1.csv')
     
     tabs = st.tabs(["Localización", "Tipos", "Personas", "Precios", "Puntuaciones"])
     
